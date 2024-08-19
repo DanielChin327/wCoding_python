@@ -1,4 +1,6 @@
-data = {
+import json
+
+json_data = {
   "id": 1,
   "name": "Leanne Graham",
   "username": "Bret",
@@ -26,3 +28,6 @@ data = {
 # greeting = f"This data belongs to {data['name']}"
 # contact = f"She can be contacted at {data['email']}"
 # print(greeting)
+
+data = json.loads(json_data)
+print(data)
