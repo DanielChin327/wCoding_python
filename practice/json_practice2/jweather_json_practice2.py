@@ -21,7 +21,6 @@ while True:
 
     if response.status_code == 200:
         data = response.json()
-        print(data)
         # Extract the required data
         longitude = data['coord']['lon']
         latitude = data['coord']['lat']
