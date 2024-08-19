@@ -3,28 +3,23 @@ import requests
 example_url = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=tokyo&appid=89638d41ac4d76e85c0eca18872b79bb"
 
 
-# city = input("Write a City Name: ")
+# city = input("Write a City Name: ") #not needed with the loop.
 url = "https://api.openweathermap.org/data/2.5/weather?units=metric&q="
 api_key = '89638d41ac4d76e85c0eca18872b79bb'
 
 while True:
-    # Prompt user for city name
-    city = input("Write a City Name (or type 'end' to quit): ")
 
-    # Check if the user wants to end the loop
-    if city.lower() == 'end':
+    city = input("Write a City Name (or type 'end' or 'quit' to stop): ")
+
+    if city.lower() == 'end' or city.lower() == 'quit':
         print("Exiting the program.")
         break
 
-    # Construct the full URL
     full_url = f"{url}{city}&appid={api_key}"
 
-    # Make the HTTP request
     response = requests.get(full_url)
 
-    # Check if the request was successful
     if response.status_code == 200:
-        # Parse the JSON response into a Python dictionary
         data = response.json()
 
         # Extract the required data
