@@ -36,17 +36,13 @@ while True:
         cloudiness = data['clouds']['all']
 
         # Print the extracted data
-        print(f"\nWeather Information for {city.capitalize()}:")
-        print(f"Longitude: {longitude}")
-        print(f"Latitude: {latitude}")
-        print(f"Main Weather: {main_weather}")
-        print(f"Description: {description}")
-        print(f"Temperature: {temperature}°C")
-        print(f"Feels Like: {feels_like}°C")
-        print(f"Minimum Temperature: {temp_min}°C")
-        print(f"Maximum Temperature: {temp_max}°C")
-        print(f"Humidity: {humidity}%")
-        print(f"Wind Speed: {wind_speed} m/s")
-        print(f"Cloudiness: {cloudiness}%\n")
+
+        print(f"\nHere's the weather update for {city.capitalize()}:\n")
+        print(f"Today's main weather condition is {main_weather}.")
+        print(f"The temperature is {temperature}°C, but will feel like {feels_like}°C.")
+        print(f"Expect a high of {temp_max}°C and a low of {temp_min}°C.")
+        print(f"Humidity levels are at {humidity}%.")
+        print(f"Wind speeds are around {wind_speed} m/s, with cloud coverage at {cloudiness}%.\n")
+
     else:
         print("Sorry, couldn't fetch the weather data. Please check the city name and try again.\n")
