@@ -1,6 +1,7 @@
 import json
 
-json_data = {
+json_data = '''
+{
   "id": 1,
   "name": "Leanne Graham",
   "username": "Bret",
@@ -23,6 +24,7 @@ json_data = {
     "bs": "harness real-time e-markets"
   }
 }
+'''
 
 
 # greeting = f"This data belongs to {data['name']}"
