@@ -21,7 +21,7 @@ while True:
 
     if response.status_code == 200:
         data = response.json()
-
+        print(data)
         # Extract the required data
         longitude = data['coord']['lon']
         latitude = data['coord']['lat']
@@ -46,3 +46,10 @@ while True:
 
     else:
         print("Sorry, couldn't fetch the weather data. Please check the city name and try again.\n")
+
+
+'''
+print full data looks like this:
+
+{'coord': {'lon': 139.6917, 'lat': 35.6895}, 'weather': [{'id': 803, 'main': 'Clouds', 'description': 'broken clouds', 'icon': '04d'}], 'base': 'stations', 'main': {'temp': 34.29, 'feels_like': 41.29, 'temp_min': 32.59, 'temp_max': 34.89, 'pressure': 1010, 'humidity': 64, 'sea_level': 1010, 'grnd_level': 1009}, 'visibility': 10000, 'wind': {'speed': 3.6, 'deg': 210}, 'clouds': {'all': 75}, 'dt': 1724053385, 'sys': {'type': 2, 'id': 2001249, 'country': 'JP', 'sunrise': 1724011401, 'sunset': 1724059605}, 'timezone': 32400, 'id': 1850144, 'name': 'Tokyo', 'cod': 200}
+'''
