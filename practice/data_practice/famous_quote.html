@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quote of the Day</title>
+  <link rel="stylesheet" href="/practice/data_practice/famous_quote_style.css">
+
+  <!-- FileSaver.js  -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js" integrity="sha512-csNcFYJniKjJxRWRV1R7fvnXrycHP6qDR21mgz1ZP55xY5d+aHLfo9/FcGDQLfn2IfngbAHd8LdfsagcCqgTcQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+</head>
+<body>
+
+
+  <div class="container">
+
+<h1>THIS IS TO PRACTICE DOWNLOADING JSON</h1>
+
+    <h1>Save a Famous Quote</h1>
+    <form id="quoteForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="quote">Famous Quote:</label>
+        <textarea id="quote" name="quote" required></textarea>
+        <button type="submit">Save Quote</button>
+    </form>
+
+<button class="saveJSON">Save JSON</button>
+
+<div id="quotesContainer">
+  <h2>Saved Quotes</h2>
+  <ul id="quotesList"></ul>
+</div>
+</div>
+
+
+
+</div>
+<script src="/practice/data_practice/famous_quote.js"></script>
+</body>
+</html>
