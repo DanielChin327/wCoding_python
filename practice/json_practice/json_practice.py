@@ -30,6 +30,6 @@ json_data = '''
 # greeting = f"This data belongs to {data['name']}"
 # contact = f"She can be contacted at {data['email']}"
 # print(greeting)
-
+print(json_data)
 data = json.loads(json_data)
 print(data)
