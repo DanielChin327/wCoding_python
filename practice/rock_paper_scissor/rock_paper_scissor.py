@@ -38,10 +38,11 @@ def start_game():
         rounds = int(rounds)
     except ValueError:
         print(f"Invalid input. You wrote {rounds}. Write a number.")
-    counter = 0
+        start_game()
+
     player_wins = 0
     computer_wins = 0
-    while counter <= rounds:
+    while player_wins < rounds and computer_wins < rounds:
         computer = comp_choice()
         player = player_choice()
         winner = check_game(computer, player)
@@ -50,16 +51,13 @@ def start_game():
         elif winner == 'player':
             print(f"Player wins! Player chose {player}. Computer chose {computer}.\n")
             player_wins += 1
-            counter += 1
         elif winner == 'computer':
             print((f"Computer wins! Player chose {player}. Computer chose {computer}.\n"))
             computer_wins += 1
-            counter += 1
     print(f"RESULTS\nPlayer Score: {player_wins}\nComputer Score: {computer_wins}\n")
 
     again = input("Type yes to play again: ")
     if again == "yes":
-        counter = 0
         start_game()
 
 start_game()
