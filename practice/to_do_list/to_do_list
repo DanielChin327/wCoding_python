@@ -1,0 +1,33 @@
+tasks = []
+
+
+def add_task():
+    task = input("Add a task: ")
+    tasks.append([len(tasks) + 1, task])
+    list_task()
+
+
+def list_task():
+    for task in tasks:
+        print(task)
+
+def remove_task():
+    task_number = input("which task number to remove?")
+    try:
+        task_number = int(task_number)
+    except ValueError:
+        print(f"Invalid input. You wrote {task_number}. Write a number.")
+        remove_task()
+    for task in tasks:
+        if task[0] == task_number:
+            tasks.pop(task_number - 1)
+    list_task()
+
+add_task()
+add_task()
+add_task()
+
+print(tasks)
+
+remove_task()
+add_task()

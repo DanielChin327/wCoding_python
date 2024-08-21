@@ -2,13 +2,11 @@ import requests
 
 example_url = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=tokyo&appid=89638d41ac4d76e85c0eca18872b79bb"
 
-
 # city = input("Write a City Name: ") #not needed with the loop.
 url = "https://api.openweathermap.org/data/2.5/weather?units=metric&q="
 api_key = '89638d41ac4d76e85c0eca18872b79bb'
 
 while True:
-
     city = input("Write a City Name (or type 'end' or 'quit' to stop): ")
 
     if city.lower() == 'end' or city.lower() == 'quit':
@@ -18,7 +16,6 @@ while True:
     full_url = f"{url}{city}&appid={api_key}"
 
     response = requests.get(full_url)
-
     if response.status_code == 200:
         data = response.json()
         # Extract the required data
@@ -45,6 +42,10 @@ while True:
 
     else:
         print("Sorry, couldn't fetch the weather data. Please check the city name and try again.\n")
+
+
+
+
 
 
 '''

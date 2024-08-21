@@ -13,9 +13,8 @@ def ask_question(question, option1, option2):
 
 def start_game():
     while True:
-        print("Welcome to the 'Am I Ugly?' flowchart game!")
-        print("Let's find out just how bad it really is...")
-        print()
+        print("Flowchart game!\n")
+
 
         # Question 1
         choice = ask_question("Am I ugly?", "Yes", "No")
