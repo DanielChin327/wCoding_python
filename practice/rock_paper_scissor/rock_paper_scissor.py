@@ -39,7 +39,6 @@ def start_game():
     except ValueError:
         print(f"Invalid input. You wrote {rounds}. Write a number.")
         start_game()
-
     player_wins = 0
     computer_wins = 0
     while player_wins < rounds and computer_wins < rounds:
@@ -55,7 +54,6 @@ def start_game():
             print((f"Computer wins! Player chose {player}. Computer chose {computer}.\n"))
             computer_wins += 1
     print(f"RESULTS\nPlayer Score: {player_wins}\nComputer Score: {computer_wins}\n")
-
     again = input("Type yes to play again: ")
     if again == "yes":
         start_game()
