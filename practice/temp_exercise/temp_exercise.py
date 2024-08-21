@@ -2,17 +2,15 @@
 def input_temp():
     while True:
         temp = input("Insert a temperature: ")
-        temp = int(temp)
-        print(type(temp))
-        if type(temp) ==  int:
+        try:
+            temp = int(temp)
             return temp
-        else:
-            print(f"invalid input. You put {temp}. Type a number")
+        except ValueError:
+            print(f"Invalid input. You wrote ${temp}")
 
 def check_type():
     while True:
-        type = input("Is this Celsius or Farenheit? (c / f): ")
-        type = type.lower()
+        type = input("Is this Celsius or Farenheit? (type c or f): ")
         if type == 'c' or type == 'f':
             return type
         else:
@@ -20,19 +18,22 @@ def check_type():
 
 def convert_temp(temp, type):
     if type == 'c':
-        return f"The degree in f is : {((temp * 9/5) + 32)}"
+        return f"The degree in f is : {round((temp * 9/5) + 32, 2)}"
     elif type == 'f':
-        return f"The degree in c is : {((temp - 32) * (5/9))}"
+        return f"The degree in c is : {round((temp - 32) * (5/9, 2))}"
     else:
         return "invalid input"
 
-while True:
-    temp = input_temp()
-    type = check_type()
-    converted = convert_temp(temp, type)
-    print(f"{converted}\n")
-    again = input("Press any key to check another temp. Otherwise type 'quit' to stop.\n")
-    again = again.lower()
-    if again == 'quit':
-        print("Have a Nice Day!")
-        break
+def start():
+    while True:
+        temp = input_temp()
+        type = check_type()
+        converted = convert_temp(temp, type)
+        print(f"{converted}\n")
+        again = input("Press any key to check another temp. Otherwise type 'quit' to stop.\n")
+        again = again.lower()
+        if again == 'quit':
+            print("Have a Nice Day!")
+            break
+
+start()
