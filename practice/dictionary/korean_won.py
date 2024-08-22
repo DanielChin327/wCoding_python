@@ -1,5 +1,5 @@
 def calculate_bills_and_coins(change):
-    denominations = {
+    change_counter = {
         50000: 0,
         10000: 0,
         5000: 0,
@@ -10,11 +10,11 @@ def calculate_bills_and_coins(change):
         10: 0,
     }
 
-    for denomination in denominations:
-        if change >= denomination:
-            denominations[denomination] = change // denomination # // discards the remainder
-            change %= denomination # // rounds the change to the divisible number of the bill
-    return denominations
+    for counter in change_counter:
+        if change >= counter:
+            change_counter[counter] = change // counter # // discards the remainder 9000 / 5000 -> 1
+            change %= counter # // collects the remainder  9000 % 5000 -> results in 4000
+    return change_counter
 
 def calculate_change(items, payment):
     sum_items = sum(items)
@@ -26,12 +26,12 @@ def calculate_change(items, payment):
         print("Your payment is exact. There is no change due")
     elif change > 0:
         print(f"Your change due is : {change}")
-        denominations = calculate_bills_and_coins(change)
+        change_back = calculate_bills_and_coins(change)
         print("Here are the bills due: ")
-        print(denominations)
-        # for denomination, count in denominations.items():
-        #     if count > 0:
-        #         print(f"{denomination} won: {count}")
+        print(change_back)
+        for change, count in change_back.items(): #change is key, count is value
+            if count > 0:
+                print(f"{change} won: {count}")
 
 def start():
     while True:
