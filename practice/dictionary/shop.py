@@ -67,8 +67,8 @@ def print_bill():
 def operate_store():
     while True:
         print("\nThe RPG Store!")
-        print("-------------------------")
-        for item_name, details in items.items():
+        print("-------------------------\n")
+        for item_name, details in items.items(): #item_name is key. details is values
             print(f"{item_name}: {details['quantity']} available, {details['price']} gil each")
 
         action = input("\nWhat would you like to do: (buy / cancel / leave)? ").strip().lower()
@@ -89,7 +89,7 @@ def operate_store():
 
         # Display the shopping cart
         if shopping_cart:
-            print("\nYour shopping cart:")
+            print("\nShopping Cart:")
             for item_name, quantity in shopping_cart.items():
                 print(f"{item_name}: {quantity} pcs")
         else:
