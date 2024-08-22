@@ -14,20 +14,22 @@ def add_to_shopping_cart(item, quantity):
         shopping_cart[item] = quantity
 
 def sell_item(item):
-    if item in items:
-        quantity = input('How many?: ')
-        try:
-            quantity = int(quantity)
-            if items[item]['quantity'] < quantity:
-                print("We don't have enough...")
-            else:
-                items[item]['quantity'] -= quantity
-                add_to_shopping_cart(item, quantity)
-                print(f"Added {quantity} {item}(s) to your shopping cart.")
-        except ValueError:
-            print("Invalid input. Please enter numbers only.")
-    else:
-        print("We don't carry that item.")
+    while True:
+        if item in items:
+            quantity = input('How many?: ')
+            try:
+                quantity = int(quantity)
+                if items[item]['quantity'] < quantity:
+                    print("We don't have enough...")
+                else:
+                    items[item]['quantity'] -= quantity
+                    add_to_shopping_cart(item, quantity)
+                    print(f"Added {quantity} {item}(s) to your shopping cart.")
+                    break
+            except ValueError:
+                print("Invalid input. Please enter numbers only.")
+        else:
+            print("\nWe don't carry that item.")
 
 def cancel_item(item):
     if item in shopping_cart:

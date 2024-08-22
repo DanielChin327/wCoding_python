@@ -5,18 +5,15 @@ person = {
     'skills': ['Python', 'Javascript', 'react']
 }
 
+items = {
+    'potion': {'quantity': 20, 'price': 100},
+    'hi-potion': {'quantity': 5, 'price': 500},
+    'antidote': {'quantity': 10, 'price': 50},
+    'phoenix-down': {'quantity': 5, 'price': 200},
+}
 
-name = person['name']
-location = person['location']
 
-# OR
 
-name2 = person.get('get')
-happy = person.get('happiness')
+items['elixer'] = {'quantity': 1, 'price':1000}
 
-person['email'] = 'danchin327@gmail.com'
-person['mood'] = 'could be worse. Could be a whole lot better too.'
-print(person)
-del person['mood']
-
-print(person)
+print(items)
