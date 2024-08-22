@@ -30,6 +30,7 @@ def sell_item(item):
                 print("Invalid input. Please enter numbers only.")
         else:
             print("\nWe don't carry that item.")
+            break
 
 def cancel_item(item):
     if item in shopping_cart:
@@ -65,7 +66,7 @@ def print_bill():
 
 def operate_store():
     while True:
-        print("\nWelcome to the RPG Store!")
+        print("\nThe RPG Store!")
         print("-------------------------")
         for item_name, details in items.items():
             print(f"{item_name}: {details['quantity']} available, {details['price']} gil each")
