@@ -95,4 +95,10 @@ def operate_store():
         else:
             print("\nYour shopping cart is empty.")
 
-operate_store()
+
+if __name__ == "__main__":
+    operate_store()
+
+
+# What does if __name__ == "__main__": do?
+# This code block means that operate_store() will only be called if the script is executed directly.
