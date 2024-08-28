@@ -53,22 +53,25 @@ def place_bets():
             print("Insufficent funds...")
 
 
-
 def user_hand():
+    user_hand = deal_hand()
     while True:
-        user_hand = deal_hand()
         print(f"Your hand is {user_hand}")
-        convert_card_value(user_hand)
-        total = sum(convert_card_value)
+        card_values = convert_card_value(user_hand)
+        total = sum(card_values)
+        print(total)
         if total > 21:
-            "Bust! You Lose!"
+            print("Bust! You Lose!")
             break
-        else:
-            draw = print("draw again? (y/n)")
+        while True:
+            draw = input("draw again? (y/n)")
+            if draw == 'y':
+                draw_again(user_hand)
+                break
+            elif draw == 'n':
+                return user_hand
+            else:
+                print("invalid input. type either y / n")
 
 
-user_hand()
-user_hand()
-user_hand()
-user_hand()
 user_hand()
