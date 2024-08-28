@@ -42,15 +42,16 @@ def place_bets():
         amount = input("Place amount to bet: ")
         try:
             amount = int(amount)
+            break
         except:
             print("invalid input. Write a number")
-        if amount <= wallet:
-            wallet = wallet - amount
-            bet = amount
-            print(f"Wallet: {wallet} \n Bet Amount: {bet}")
-            return bet
-        elif amount > wallet:
-            print("Insufficent funds...")
+    if amount <= wallet:
+        wallet = wallet - amount
+        bet = amount
+        print(f"Wallet: {wallet} \nBet Amount: {bet}\n")
+        return bet
+    elif amount > wallet:
+        print("Insufficent funds...")
 
 
 def user_hand():
@@ -59,14 +60,13 @@ def user_hand():
         print(f"Your hand is {user_hand}")
         card_values = convert_card_value(user_hand)
         total = sum(card_values)
-        print(total)
         if total > 21:
             print("Bust! You Lose!")
             break
         while True:
             draw = input("draw again? (y/n)")
             if draw == 'y':
-                draw_again(user_hand)
+                user_hand = draw_again(user_hand)
                 break
             elif draw == 'n':
                 return user_hand
@@ -74,4 +74,48 @@ def user_hand():
                 print("invalid input. type either y / n")
 
 
-user_hand()
+def play_game():
+    global wallet
+    print("Lets Play BlackJack")
+    print("--------------------")
+    print(f"Current Funds: {wallet}")
+    while True:
+        print("Place a Bet")
+        bet = place_bets()
+        print("Dealer deals hand")
+        dealer_hand = deal_hand()
+        print(f"Dealer Hand is [{dealer_hand[0]}, Face_Down]")
+        user_cards = user_hand()
+        if user_cards != None:
+            dealer_hand_value = sum(convert_card_value(dealer_hand))
+            user_hand_value = sum(convert_card_value(user_cards))
+            if (dealer_hand_value == user_hand_value):
+                print("TIE")
+                print(f"Dealer Hand was {dealer_hand}")
+                print(f"Player Hand was {user_cards}")
+                wallet = wallet + bet
+                break
+            elif(dealer_hand_value > user_hand_value):
+                print("Dealer wins!")
+                print(f"Dealer Hand was {dealer_hand}")
+                print(f"Player Hand was {user_cards}")
+                break
+            elif(dealer_hand_value < user_hand_value):
+                print(f"Player Wins! Player Wins {bet}")
+                print(f"Dealer Hand was {dealer_hand}")
+                print(f"Player Hand was {user_cards}")
+                wallet = wallet + bet + bet
+                break
+        again = input("type 'yes' to play again")
+        again = again.lower()
+        if again == 'yes':
+            play_game()
+
+
+
+
+
+
+
+play_game()
+print(f"Wallet: {wallet}")
