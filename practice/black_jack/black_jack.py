@@ -48,7 +48,7 @@ def place_bets():
     if amount <= wallet:
         wallet = wallet - amount
         bet = amount
-        print(f"Wallet: {wallet} \nBet Amount: {bet}\n")
+        print(f"Funds: {wallet} \nBet Amount: {bet}\n")
         return bet
     elif amount > wallet:
         print("Insufficent funds...")
@@ -62,9 +62,10 @@ def user_hand():
         total = sum(card_values)
         if total > 21:
             print("Bust! You Lose!")
+            print(f"funds: {wallet}")
             break
         while True:
-            draw = input("draw again? (y/n)")
+            draw = input("draw again? (y/n): ")
             if draw == 'y':
                 user_hand = draw_again(user_hand)
                 break
@@ -78,6 +79,7 @@ def play_game():
     global wallet
     print("Lets Play BlackJack")
     print("--------------------")
+    print("Objective: Try to get a fund of 100")
     print(f"Current Funds: {wallet}")
     while True:
         print("Place a Bet")
@@ -90,32 +92,31 @@ def play_game():
             dealer_hand_value = sum(convert_card_value(dealer_hand))
             user_hand_value = sum(convert_card_value(user_cards))
             if (dealer_hand_value == user_hand_value):
-                print("TIE")
+                print("\nTIE")
                 print(f"Dealer Hand was {dealer_hand}")
                 print(f"Player Hand was {user_cards}")
                 wallet = wallet + bet
                 break
             elif(dealer_hand_value > user_hand_value):
-                print("Dealer wins!")
+                print("\nDealer wins!")
                 print(f"Dealer Hand was {dealer_hand}")
                 print(f"Player Hand was {user_cards}")
                 break
             elif(dealer_hand_value < user_hand_value):
-                print(f"Player Wins! Player Wins {bet}")
+                print(f"\nPlayer Wins! Player Wins {bet}")
                 print(f"Dealer Hand was {dealer_hand}")
                 print(f"Player Hand was {user_cards}")
                 wallet = wallet + bet + bet
                 break
-        again = input("type 'yes' to play again")
-        again = again.lower()
-        if again == 'yes':
-            play_game()
-
-
-
-
-
+    print(f"\nFunds: {wallet}")
+    again = input("type 'yes' to play again: ")
+    again = again.lower()
+    if wallet >= 100:
+        print("You made a 100! You win!")
+    elif again == 'yes' and wallet > 0:
+        play_game()
+    elif wallet <= 0:
+        print("You are broke. Game Over")
 
 
 play_game()
-print(f"Wallet: {wallet}")
