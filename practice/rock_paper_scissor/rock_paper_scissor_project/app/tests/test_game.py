@@ -2,7 +2,9 @@
 
 import pytest
 import game
+# tests/test_game.py
 
+from src.game import comp_choice, check_game
 
 def test_comp_choice():
     choices = ['rock', 'paper', 'scissor']
