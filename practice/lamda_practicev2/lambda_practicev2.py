@@ -2,6 +2,18 @@
 	# e.g. 3 + 33 + 333 + 3333 + 33333 ... n times
 	# The function should take in two arguments, n and the digit to repeat OR you can write 2 seperate functions
 
+def sum_num(n, digit):
+    digit_str = str(digit)
+    num_str = ''
+    counter = 1
+    while counter <= n:
+        num_str += digit_str
+        counter += 1
+    number_list = [int(char) for char in num_str]
+    total = sum(number_list)
+    return total
+
+print(sum_num(3, 2))
 # 2. Print out the following pattern
 # *
 # * *
