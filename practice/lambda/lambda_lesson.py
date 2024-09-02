@@ -110,3 +110,8 @@ for character in sorted_characters:
     print(character)
 
 # Output will display the characters sorted by their grades in ascending order.
+
+# Sorting the characters by their grades in descending order using lambda
+sorted_characters2 = sorted(harry_potter_characters, key=lambda x: x['grade'], reverse=True)
+for character in sorted_characters2:
+    print(character)
