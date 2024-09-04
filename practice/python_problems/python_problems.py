@@ -2,6 +2,8 @@
 	# e.g. 3 + 33 + 333 + 3333 + 33333 ... n times
 	# The function should take in two arguments, n and the digit to repeat OR you can write 2 seperate functions
 
+import math
+
 def sum_num(n, digit):
     digit_str = str(digit)
     num_str = ''
@@ -37,7 +39,7 @@ def triangle():
         print(star)
         star = star[:-1]
 
-print(triangle())
+
 
 	##### CHALLENGE ##### allow user imput for the number of rows they'd like to print out for the pattern above
 
@@ -49,8 +51,6 @@ def calculate(num1, num2):
     product = num1 * num2
     quotient = num1/num2
     return sum, diff, product, quotient
-
-print(calculate(6, 4))
 
 
 # 4. Write a function that takes 2 integer arguments and returns a list of every even number between them
@@ -66,7 +66,6 @@ def evens(num1, num2):
         start +=1
     return list
 
-print(evens(2, 10))
 
 
 # 5. Write a function that iterates through a list and returns the largest number in that list. DON'T USE THE MAX() FUNCTION for practice
@@ -78,12 +77,21 @@ def max_num(list):
             result = num
     return result
 
-print(max_num([5,7,2,9,1,3]))
 
 # 6. Write a function that accepts user input and determines if the string OR number is a palindrome
 	# a palindrome is a word or phrase that reads the same backwards and forwards
 	# racecar, madam, 123454321, 10101, etc.
 
 
-def palindrome_check(word):
-    check = str(word)
+def palindrome_check():
+    message = input("Check if message is palindrome:   ")
+    message = message.lower()
+    message_list = list(message)
+    for index in range(math.floor(len(message_list) / 2)):
+        if message_list[index] != message_list[-(index + 1)]:
+            return "Not Palindrome."
+
+    return "It is Palindrome."
+
+
+print(palindrome_check())

@@ -1,6 +1,6 @@
 from timing_sort_algo import run_sorting_algorithm
 
-numbers_list =
+numbers_list = [1,2,3,8,2]
 
 
 def insertion_sort():
